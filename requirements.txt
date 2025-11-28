@@ -13,3 +13,4 @@ pdf2image
 werkzeug
 gunicorn
 protobuf==3.20.3
+easyocr
