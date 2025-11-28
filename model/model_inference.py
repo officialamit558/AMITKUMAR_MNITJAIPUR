@@ -1,3 +1,4 @@
+
 # model/model_inference.py
 import torch
 from transformers import DonutProcessor, VisionEncoderDecoderModel
@@ -75,11 +76,15 @@ class InvoiceExtractor:
             if parsed_json and "line_items" in parsed_json:
                 bill_items = []
                 for item in parsed_json["line_items"]:
+                    qty = float(item.get("qty", 0) or 0)
+                    rate = float(item.get("rate", 0) or 0)
+                    # Calculate item_amount as quantity * rate
+                    item_amount = qty * rate
                     bill_items.append({
                         "item_name": item.get("name", "").strip(),
-                        "item_amount": float(item.get("amount", 0) or 0),
-                        "item_rate": float(item.get("rate", 0) or 0),
-                        "item_quantity": float(item.get("qty", 0) or 0)
+                        "item_amount": item_amount,
+                        "item_rate": rate,
+                        "item_quantity": qty
                     })
             else:
                 # OCR fallback
