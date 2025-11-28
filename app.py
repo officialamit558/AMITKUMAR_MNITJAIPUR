@@ -1,3 +1,4 @@
+
 # app.py
 from flask import Flask, request, jsonify
 from model.model_inference import InvoiceExtractor
