@@ -43,21 +43,21 @@ Given a set of **bills (multi-page invoices)**, the system must extract:
 
 ```bash
 invoice-extractor/
-├── app.py                  # Main Flask Application
-├── requirements.txt        # Python dependencies
-├── Dockerfile              # Containerization
-├── Procfile                # Heroku/Render deployment
-├── README.md               # Project Documentation
+├── app.py                  
+├── requirements.txt        
+├── Dockerfile              
+├── Procfile                
+├── README.md               
 │
 ├── model/
-│   ├── model_inference.py  # Donut inference + OCR fallback + PDF handling
-│   ├── ocr_utils.py        # Tesseract preprocessing & OCR
-│   └── parser.py           # Line-item extraction & reconciliation logic
+│   ├── model_inference.py  
+│   ├── ocr_utils.py        
+│   └── parser.py           
 │
 ├── utils/
-│   └── download.py         # Safe cross-platform file downloader
+│   └── download.py         
 │
-└── test_samples/           # Optional test PDFs/images
+└── test_samples/        
 
 # API Endpoint
 POST /extract-bill-data
@@ -115,4 +115,4 @@ curl -X POST http://localhost:5000/extract-bill-data \
 -d "{\"document\":\"[https://your-url.com/bill.png](https://your-url.com/bill.png)\"}"
 
 # Author
-Amit Kumar HackRx Bill Extraction Challenge
+Amit Kumar and hackrxbot for  Bill Extraction Challenge
