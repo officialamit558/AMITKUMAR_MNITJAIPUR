@@ -1,3 +1,4 @@
+
 # model/parser.py
 
 import re
@@ -50,25 +51,28 @@ def parse_line_items_from_text(lines: List[str]) -> List[Dict]:
         if not name or "total" in name.lower():
             continue
 
+        # Calculate correct item_amount as quantity * rate
+        calculated_amount = qty * rate
+
         items.append({
             "item_name": name,
             "item_quantity": qty,
             "item_rate": rate,
-            "item_amount": amount
+            "item_amount": calculated_amount
         })
 
     return items
 
 
 def reconcile_items(items: List[Dict]) -> float:
-    """Avoid duplicate counting and sum total."""
-    seen = set()
+    """Calculate total reconciled amount by summing all item_amounts (quantity * rate)."""
     total = 0.0
 
     for it in items:
-        key = (it["item_name"], it["item_rate"], it["item_quantity"])
-        if key not in seen:
-            seen.add(key)
-            total += it["item_amount"]
+        # Calculate item_amount if not already calculated
+        item_amount = it.get("item_amount", 0.0)
+        if item_amount == 0.0:
+            item_amount = float(it.get("item_quantity", 0)) * float(it.get("item_rate", 0))
+        total += item_amount
 
     return round(total, 2)
