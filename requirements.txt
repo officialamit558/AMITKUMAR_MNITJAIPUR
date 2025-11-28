@@ -7,7 +7,7 @@ donut-python>=1.0.0
 sentencepiece
 tqdm
 pytesseract>=0.3.10
-opencv-python-headless
+opencv-python-headless==4.8.1.78
 numpy
 pdf2image
 werkzeug
