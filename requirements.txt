@@ -13,6 +13,7 @@ werkzeug
 gunicorn
 protobuf==3.20.3
 easyocr
-pyarrow>=16.0.0
-pandas>=2.0.0
-numpy>=1.26.0
+python-dotenv
+huggingface_hub
+poppler-utils
+
