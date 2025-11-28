@@ -38,4 +38,4 @@ def extract_bill_data():
         return jsonify({"is_success": False, "error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)
