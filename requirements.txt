@@ -1,0 +1,15 @@
+flask==2.3.2
+requests==2.31.0
+Pillow==10.0.0
+torch>=2.0.0
+transformers>=4.35.0
+donut-python>=1.0.0
+sentencepiece
+tqdm
+pytesseract>=0.3.10
+opencv-python-headless
+numpy
+pdf2image
+werkzeug
+gunicorn
+protobuf==3.20.3
